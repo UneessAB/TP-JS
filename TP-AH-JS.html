@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP</title>
+    <link rel="stylesheet" href="TP-AH-JS.css">
+</head>
+<body>
+<div class="n1">
+    <script>
+        function afficherDateAujourdhui() {
+            var dateActuelle = new Date();
+            var jour = dateActuelle.getDate();
+            var mois = dateActuelle.getMonth() + 1;
+            var annee = dateActuelle.getFullYear();
+            jour = (jour < 10) ? "0" + jour : jour;
+            mois = (mois < 10) ? "0" + mois : mois;
+            var dateFormatée = "on est le " + jour + "/" + mois + "/" + annee;
+            console.log(dateFormatée);
+            document.getElementById("dateContainer").innerText = dateFormatée;
+        }
+        window.onload = afficherDateAujourdhui;
+    </script>
+<div id="dateContainer"></div>
+</div>
+<div class="n2">
+    <h1>Calcul de l'aire et du périmètre d'un carré</h1>
+        <label for="coteInput">Veillez saisir la longueur du côté :</label>
+        <input type="number" id="coteInput" placeholder>
+        <button onclick="calculer()">Calculer</button>
+        <p id="resultats"></p>
+        <script>
+            function calculer_perimetre_carre(cote) {
+                return 4 * cote;
+            }
+            function calculer_aire_carre(cote) {
+                return cote * cote;
+            }
+            function afficher_resultats(cote) {
+                var perimetre = calculer_perimetre_carre(cote);
+                var aire = calculer_aire_carre(cote);
+                document.getElementById("resultats").innerHTML = "Périmètre : " + perimetre + "<br>Aire : " + aire;
+            }
+            function calculer() {
+                var cote = document.getElementById("coteInput").value;
+                if (!isNaN(cote) && cote !== "") {
+                    afficher_resultats(parseFloat(cote));
+                } else {
+                    alert("Veuillez entrer une valeur numérique pour la longueur du côté.");
+                }
+            }
+        </script>
+</div>
+<div class="n3">
+    <h1>Convertisseur Euro en Dirham Marocain</h1>   
+        <label for="euroAmount">Entrez le montant en Euro:</label>
+        <input type="number" id="euroAmount" placeholder>
+        <button onclick="convertToMAD()">Convertir</button>
+        <p id="resulteuro"></p>
+        <script>
+            function convertToMAD() {
+                const tauxDeChange = 10.93; 
+                const euroAmount = document.getElementById('euroAmount').value;
+                if (!isNaN(euroAmount)) {
+                    const madAmount = euroAmount * tauxDeChange;
+                    document.getElementById('resulteuro').innerHTML = `${euroAmount} Euro équivaut à <strong> ${madAmount.toFixed(2)} DH`;
+                } else {
+                    alert("Veuillez entrer un montant valide en Euro.");
+                }
+            }
+        </script>
+</div>
+<div class="n4">
+    <h1>Calculateur de Durée</h1>
+    <h2>Calculer en secondes</h2>
+    <label for="hours">Heures:</label>
+    <input type="number" id="hours" placeholder min="0">
+    <label for="minutes">Minutes:</label>
+    <input type="number" id="minutes" placeholder min="0">
+    <label for="seconds">Secondes:</label>
+    <input type="number" id="seconds" placeholder min="0">
+    <button onclick="calculateSeconds()">Calculer</button>
+    <p id="resultSeconds"></p>
+    <h2>Convertir en heures, minutes et secondes</h2>
+    <label for="totalSeconds">Total de secondes:</label>
+    <input type="number" id="totalSecondsInput" placeholder min="0">
+    <button onclick="convertToTime()">Convertir</button>
+    <p id="resultTime"></p>
+    <script>
+      function calculateSeconds() {
+        var hours = parseInt(document.getElementById("hours").value) || 0;
+        var minutes = parseInt(document.getElementById("minutes").value) || 0;
+        var seconds = parseInt(document.getElementById("seconds").value) || 0;
+        var totalSeconds = hours * 3600 + minutes * 60 + seconds;
+        document.getElementById("resultSeconds").innerText = "Résultat en secondes: " + totalSeconds + " secondes";
+      }
+      function convertToTime() {
+        var totalSeconds = parseInt(document.getElementById("totalSecondsInput").value) || 0;
+        var hours = Math.floor(totalSeconds / 3600);
+        var minutes = Math.floor((totalSeconds % 3600) / 60);
+        var seconds = totalSeconds % 60;
+        document.getElementById("resultTime").innerText = "Résultat: " + hours + " heures, " + minutes + " minutes, " + seconds + " secondes";
+      }
+    </script>   
+</div>
+<div class="n5">
+    <h1>Nombre de jours dans un mois</h1>
+    <label for="mois">Saisissez le numéro d'un mois (entre 1 et 12) :</label>
+    <input type="number" id="mois" min="1" max="12">
+    <button onclick="afficherNombreJours()">Afficher</button>
+    <p id="resultatm"></p>
+    <script>
+        function afficherNombreJours() {
+            var mois = document.getElementById("mois").value;
+            if (mois >= 1 && mois <= 12) {
+                var joursDansMois = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+                var resultatm = "Le mois " + mois + " a " + joursDansMois[mois - 1] + " jours.";
+                document.getElementById("resultatm").innerHTML = resultatm;
+            } else {
+                document.getElementById("resultatm").innerHTML = "Veuillez saisir un mois valide (nombre entre 1 et 12).";
+            }
+        }
+    </script>
+</div>
+<div class="n6">
+    <h1>Situation du Candidat</h1>   
+    <label for="moyenne">Entrez la moyenne du candidat : </label>
+    <input type="number" id="moyenne" step="0.01" required>
+    <button onclick="calculerResultat()">Voir</button>  
+    <p id="resultat"></p>
+    <script>
+        function calculerResultat() {
+            var moyenne = parseFloat(document.getElementById('moyenne').value);
+            var resultatText = "";
+            if (isNaN(moyenne)) {
+                resultatText = "Veuillez saisir une valeur valide.";
+            } else if (moyenne < 0 || moyenne > 20) {
+                resultatText = "Veuillez saisir une valeur entre 0 et 20.";
+            } else if (moyenne < 10) {
+                resultatText = "Recalé";
+            } else if (moyenne >= 10 && moyenne < 12) {
+                resultatText = "Reçu";
+            } else {
+                resultatText = "Reçu avec mention";
+            }
+            document.getElementById('resultat').innerText = resultatText;
+        }
+    </script>
+</div>
+<div class="n7">
+    <h1>Système de Recommandation de Films</h1>
+    <label for="age">Entrez votre âge : </label>
+    <input type="number" id="age" min="1" required>
+    <button onclick="recommanderFilm()">Recommander un film</button>
+    <p id="resultatF"></p>
+    <script>
+        function recommanderFilm() {
+            var age = document.getElementById('age').value;
+            var resultatElement = document.getElementById('resultatF');
+
+            if (age <= 13) {
+                resultatElement.textContent = "Nous vous recommandons ' Lilo & Stitch '";
+            } else if (age > 13 && age < 18) {
+                resultatElement.textContent = "Nous vous recommandons ' Matrix '";
+            } else {
+                resultatElement.textContent = "Nous vous recommandons ' Evil Dead '";
+            }
+        }
+    </script>
+</div>
+<div class="n8">
+    <h1>Déterminer le Signe du Produit</h1>
+    <label class="lab1" for="nombre1">Nombre 1:</label>
+    <input class="inp1" type="text" id="nombre1">
+    <label class="lab1" for="nombre2">Nombre 2:</label>
+    <input class="inp1" type="text" id="nombre2">
+    <br>
+    <button class="but" onclick="determineSign()">Déterminer le Signe</button>
+    <div id="resultat8"></div>
+    <script>
+        function determineSign() {
+            var nombre1 = parseFloat(document.getElementById('nombre1').value);
+            var nombre2 = parseFloat(document.getElementById('nombre2').value);
+            if (isNaN(nombre1) || isNaN(nombre2)) {
+                alert("Veuillez entrer des nombres valides.");
+                return;
+            }
+            var signe = (nombre1 * nombre2 >= 0) ? "positif" : "négatif";
+            var resultat8 = "Le produit de " + nombre1 + " et " + nombre2 + " est : " + signe;
+            document.getElementById('resultat8').innerHTML = resultat8;
+        }
+    </script>
+    <br>
+</div>
+<div class="n9">
+    <h2>Les opérations de calcul arithmétiques</h2>
+  <p>Saisir un nombre A :</p>
+  <input class="inp9" type="text" id="number1" onclick="changeColor('number1')" />
+  <p>Saisir un nombre B :</p>
+  <input class="inp9" type="text" id="number2" onclick="changeColor('number2')" />
+  <p id="resultText">Le résultat est :</p>
+  <input class="inp9" type="text" id="result" readonly />
+  <br>
+  <br>
+  <button onclick="performOperation('+')">+</button>
+  <button onclick="performOperation('-')">-</button>
+  <button onclick="performOperation('*')">*</button>
+  <button onclick="performOperation('/')">/</button>
+  <button onclick="resetForm()">Reset</button>
+  <button onclick="submitForm()">Submit</button>
+  <script>
+    function changeColor(inputId) {
+      document.getElementById(inputId).classList.add('green');
+    }
+    function performOperation(operator) {
+      const num1 = parseFloat(document.getElementById('number1').value);
+      const num2 = parseFloat(document.getElementById('number2').value);
+      let result;
+      switch (operator) {
+        case '+':
+          result = num1 + num2;
+          break;
+        case '-':
+          result = num1 - num2;
+          break;
+        case '*':
+          result = num1 * num2;
+          break;
+        case '/':
+          result = num1 / num2;
+          break;
+        default:
+          break;
+      }
+      const resultInput = document.getElementById('result');
+      resultInput.value = result;
+      resultInput.classList.add('green');
+      document.getElementById('resultText').innerHTML = 'Le résultat est :';
+    }
+    function resetForm() {
+      document.getElementById('number1').value = '';
+      document.getElementById('number2').value = '';
+
+      const resultInput = document.getElementById('result');
+      resultInput.value = '';
+      resultInput.classList.remove('green');
+      document.getElementById('number1').classList.remove('green');
+      document.getElementById('number2').classList.remove('green');
+      const resultText = document.getElementById('resultText');
+      resultText.classList.remove('green');
+      resultText.innerHTML = 'Le résultat est :';
+    }
+    function submitForm() {
+    }
+  </script>
+</div>
+<br>
+<button class="rfsh" onclick="location.reload();">Refresh</button>
+</body>
+</html>

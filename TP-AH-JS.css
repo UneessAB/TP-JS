@@ -1,0 +1,129 @@
+body  {
+    background-color: rgb(33, 33, 33)
+}
+
+h1 {  
+    text-decoration: underline;         
+    color: rgb(255, 255, 255);
+}
+
+.n1 { 
+    color: rgb(255, 255, 255);
+    font-size: 80px;     
+    margin-top: 40px;
+    font-style: italic;
+    border: 5px solid rgb(255, 255, 255);
+    margin-left: 280px;
+    margin-right: 280px;
+}
+
+.n2 { 
+    color: rgb(255, 255, 255);
+    font-size: 30px; 
+    align-items: center;
+    text-align: center;
+    font-style: italic;
+    margin-top: 100px;
+    border: 5px solid rgb(255, 255, 255);
+}
+
+.n3 { 
+    color: rgb(255, 255, 255);
+    font-size: 30px; 
+    align-items: center;
+    text-align: center;
+    font-style: italic;
+    margin-top: 100px;
+    border: 5px solid rgb(255, 255, 255);
+}
+
+.n4 {
+    color: rgb(255, 255, 255);
+    font-size: 30px; 
+    align-items: center;
+    text-align: center;
+    font-style: italic;
+    margin-top: 100px;
+    border: 5px solid rgb(255, 255, 255);
+}
+
+.n5 {
+    color: rgb(255, 255, 255);
+    font-size: 30px; 
+    align-items: center;
+    text-align: center;
+    font-style: italic;
+    margin-top: 100px;
+    border: 5px solid rgb(255, 255, 255);
+}
+
+.n6 {
+    color: rgb(255, 255, 255);
+    font-size: 30px; 
+    align-items: center;
+    text-align: center;
+    font-style: italic;
+    margin-top: 100px;
+    border: 5px solid rgb(255, 255, 255);
+}
+
+.n7 {
+    color: rgb(255, 255, 255);
+    font-size: 30px; 
+    align-items: center;
+    text-align: center;
+    font-style: italic;
+    margin-top: 100px;
+    border: 5px solid rgb(255, 255, 255);
+}
+
+.n8 {
+    color: rgb(255, 255, 255);
+    font-size: 30px; 
+    align-items: center;
+    text-align: center;
+    font-style: italic;
+    margin-top: 100px;
+    border: 5px solid rgb(255, 255, 255);
+}
+
+.lab1 {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    margin-bottom: 10px;
+}
+
+.but {
+    margin-bottom: 15px;
+}
+
+.inp9 {
+    background-color: #b5e1f0; 
+    color: red; 
+    padding-right: 100px;
+}
+
+.green {
+    background-color: #48f048 !important;
+}
+
+
+.n9 { 
+    background-color:rgb(255, 255, 255) ;
+    font-size: 20px; 
+    align-items: center;
+    margin-top: 100px;
+    border: 5px solid rgb(33, 33, 33);
+    padding-left: 20px;
+    padding-bottom: 20px;
+}
+
+.rfsh {       
+    font-size: 28px;
+    background-color: rgb(255, 251, 22);
+    color: rgb(24, 24, 24);
+    margin-left: 45%;
+}
